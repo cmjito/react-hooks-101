@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { usestate, useState } from 'react'
 
-function App() {
+
+const App = props => {
+  const [ name, SetName ] = useState( props.name )
+  const [ price, SetPrice ] = useState( props.price )
+
+  const reset = () => {
+    SetPrice(props.price)
+    SetName(props.name)
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <React.Fragment>
+      <div >
+        Hello...
+      </div>
+      <p>現在の{name}は、{price}です</p>
+      <button onClick={() => SetPrice(price +1)}>+1</button>
+      <button onClick={() => SetPrice(price -1)}>-1</button>
+      <button onClick={ reset }>Reset</button>
+      <input value={name} onChange={ e => SetName( e.target.value ) } />
+
+
+    </React.Fragment>
+  )
 }
 
-export default App;
+
+App.defaultProps = {
+  name: '',
+  price: 1000
+}
+
+
+export default App
