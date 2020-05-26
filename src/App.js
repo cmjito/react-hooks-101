@@ -14,7 +14,7 @@ const App = props => {
   return (
     <React.Fragment>
       <div >
-        Hello...
+        Hello....
       </div>
       <p>現在の{name}は、{price}です</p>
       <button onClick={() => SetPrice(price +1)}>+1</button>
