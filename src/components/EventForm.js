@@ -4,12 +4,14 @@ import {
   CREATE_EVENT,
   DELETE_ALL_EVENTS
 } from '../actions'
-import AppContext from '../contexts/AppContext'
 
-const EventForm = () => {
-  const { state, dispatch } = useContext(AppContext)
-  const [title, setTitle] = useState('')
-  const [body, setBody] = useState('')
+//import AppContext from '../contexts/AppContext'
+
+const EventForm = ( {state, dispatch} ) => {
+  //const { state, dispatch } = useContext(AppContext)
+  //const { state, dispatch } = useReducer(reducer, [])
+  const [ title, setTitle] = useState('')
+  const [ body, setBody] = useState('')
 
   const addEvent = e => {
     e.preventDefault()
