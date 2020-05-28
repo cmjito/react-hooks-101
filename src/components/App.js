@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 //import EventForm from './EventForm'
 //import Events from './Events'
+import Event from './Event'
 //import AppContext from '../contexts/AppContext'
 import reducer from '../reducers'
 
@@ -63,6 +64,7 @@ const App = () => {
             </tr>
           </thead>
           <tbody>
+            { state.map( (event, index) => (<Event key={index} event={event} dispatch={dispatch} ></Event> )) }
 
           </tbody>
         </table>
