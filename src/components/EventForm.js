@@ -5,10 +5,10 @@ import {
   DELETE_ALL_EVENTS
 } from '../actions'
 
-//import AppContext from '../contexts/AppContext'
+import AppContext from '../contexts/AppContext'
 
-const EventForm = ( {state, dispatch} ) => {
-  //const { state, dispatch } = useContext(AppContext)
+const EventForm = ( ) => {
+  const { state, dispatch } = useContext(AppContext)
   //const { state, dispatch } = useReducer(reducer, [])
   const [ title, setTitle] = useState('')
   const [ body, setBody] = useState('')
