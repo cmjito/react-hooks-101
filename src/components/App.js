@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 
@@ -9,12 +9,27 @@ import AppContext from '../contexts/AppContext'
 import reducer from '../reducers'
 
 
+const APP_KEY = 'appWithRedux'
+
 const App = () => {
-  const initialState ={
+
+  // Loadする
+  const appState = localStorage.getItem(APP_KEY)
+
+  const initialState = appState ? JSON.parse(appState) : {
     events: [],
     operationLogs: []
   }
   const [state, dispatch] = useReducer(reducer, initialState)
+
+  // 変化検知 stateの監視
+  useEffect( () => {
+    //console.log('I am called')
+    const szStr = JSON.stringify(state)
+    //console.log(szStr)
+    localStorage.setItem( APP_KEY, szStr)
+  }, [state])
+
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>
