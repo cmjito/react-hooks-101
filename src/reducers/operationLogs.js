@@ -8,7 +8,7 @@ const operationLogs = (state = [], action) => {
   switch(action.type) {
     case ADD_OPERATION_LOG:
         const operationLog = {
-            discription: action.discription,
+            description: action.description,
             operatedAt: action.operatedAt
          }
       return [ operationLog, ...state]
